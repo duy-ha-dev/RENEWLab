@@ -42,7 +42,11 @@ import matplotlib
 import csv
 import pandas as pd
 #
-
+##Duy added
+import ipdb #breakpoint debugger
+import os
+#Used this to get correct pathing on my PC
+#print("Directory is", os.getcwd())
 
 # Tested with inputs: ./data_in/Argos-2019-3-11-11-45-17_1x8x2.hdf5 300  (for two users)
 #                     ./data_in/Argos-2019-3-30-12-20-50_1x8x1.hdf5 300  (for one user) 
@@ -94,6 +98,9 @@ legacy = options.legacy
 corr_thresh = options.corr_thresh
 exclude_bs_nodes_str = options.exclude_bs_nodes
 exclude_bs_nodes = []
+
+ipdb.set_trace(context=5) #breakpoint 1
+
 if len(exclude_bs_nodes_str) > 0:
     exclude_ant_ids = exclude_bs_nodes_str.split(',')
     exclude_bs_nodes = [int(i) for i in exclude_ant_ids]
@@ -106,7 +113,7 @@ if len(exclude_bs_nodes_str) > 0:
 
 #filename = 'pole_exp_1/goldline/h5/first.hdf5'
 #filename = 'pole_exp_1/ten_yard/h5/first.hdf5'
-filename = 'pole_exp_1/twenty_yard/h5/first.hdf5'
+filename = os.path.join(sys.path[0], 'pole_exp_1_clean/twenty_yard/h5/first.hdf5') #This creates absolute path independent of system
 
 scrpt_strt = time.time()
 
