@@ -99,7 +99,7 @@ corr_thresh = options.corr_thresh
 exclude_bs_nodes_str = options.exclude_bs_nodes
 exclude_bs_nodes = []
 
-ipdb.set_trace(context=5) #breakpoint 1
+#ipdb.set_trace(context=5) #breakpoint 1
 
 if len(exclude_bs_nodes_str) > 0:
     exclude_ant_ids = exclude_bs_nodes_str.split(',')
@@ -272,6 +272,7 @@ else:
             # Samps: #Frames, #Cell, #Users, #Antennas, #Samples
             # CSI:   #Frames, #Cell, #Users, #Pilot Rep, #Antennas, #Subcarrier
             # For correlation use a fft size of 64
+            #ipdb.set_trace(context=5) #breakpoint 2
             print("*verify_hdf5(): Calling samps2csi with fft_size = {}, offset = {}, bound = {}, cp = {} *".format(fft_size, offset, z_padding, cp))
             csi, samps = hdf5_lib.samps2csi(pilot_samples, num_cl_tmp, symbol_length, fft_size=fft_size, offset=offset, bound=z_padding,
                                         cp=cp, sub=1, pilot_type=pilot_type, nonzero_sc_size=nonzero_sc_size)
